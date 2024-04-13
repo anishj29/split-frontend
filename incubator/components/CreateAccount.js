@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function CreateAccount() {
+export default function CreateAccount({navigation}) {
   const [passwordVisible, setPasswordVisible] = useState(false);
-
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.halfCircleLeftTop} />
@@ -112,6 +111,7 @@ export default function CreateAccount() {
             borderRadius: 20,
             marginBottom: 15,
           }}
+          onPress={() => navigation.navigate('Activity')}
         >
           <Text style={{ color: '#fff', textAlign: 'center' }}>Sign Up</Text>
         </TouchableOpacity>
@@ -141,8 +141,8 @@ export default function CreateAccount() {
 
         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
           <Text style={{ color: 'black' }}>Already have an account? </Text>
-          <TouchableOpacity onPress={() => alert('Sign Up')}>
-            <Text style={{ color: 'green' }}>Log In</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={{color: "green"}}>Log In</Text>
           </TouchableOpacity>
         </View>
       </View>
